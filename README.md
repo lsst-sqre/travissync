@@ -17,4 +17,4 @@ the secret, and running `kubectl create -f secret-file` on it.  Then run
 ...or at least this would work if GKE supported CronJobs.
 
 As it is, install the package sqre-travissync, and then run
-sqre-travissync once GITHUB_TOKEN is set.
+sqre-travissync once `GITHUB_TOKEN` is set.
