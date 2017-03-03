@@ -1,0 +1,22 @@
+apiVersion: batch/v2alpha1
+kind: CronJob
+metadata:
+  name: traviscisync
+spec:
+  schedule: "23 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: traviscisync
+              imagePullPolicy: "Always"
+              image: "lsstsqre/travissync"
+              env:
+                - name: GITHUB_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: traviscisync
+                      key: github-token
+          restartPolicy: OnFailure
+
